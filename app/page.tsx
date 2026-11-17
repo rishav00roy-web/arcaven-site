@@ -42,7 +42,7 @@ export default function Home() {
       <Hero
         eyebrow="DEDICATED CX & OPERATIONS FOR US & UK E-COMMERCE BRANDS"
         lines={["ARCAVEN", "SOLUTIONS"]}
-        headline="Dedicated Customer Support & Operations That Scale Your Brand—At a Fraction of Local Hiring Costs."
+        headline="Dedicated Customer Support & Operations That Scale Your Brand At a Fraction of Local Hiring Costs."
         description="Stop losing hours to repetitive order tickets, DMs, and refund disputes."
         cta={{ href: "#contact", label: "Start Free Trial" }}
       />

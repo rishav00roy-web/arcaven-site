@@ -29,13 +29,6 @@ export default function GettingHere() {
             <p className="ww-getting-here__address">Gorgias · Zendesk · Freshdesk · Gmail · Shopify</p>
           </div>
 
-          <div className="ww-getting-here__refund">
-            <h4 className="ww-getting-here__subheading label">No Long-Term Lock-In</h4>
-            <p className="ww-getting-here__refund-text">
-              Scale smoothly with dedicated part-time or full-time coverage starting at a fraction of
-              a local US/UK hire—no long-term lock-in contracts.
-            </p>
-          </div>
         </div>
 
         <div className="ww-getting-here__map-wrap">

@@ -58,11 +58,8 @@ export default function BookingBar() {
 
         <div className="booking-bar__footnote">
           <span>Leadership Experience Across Global Operations:</span>
-          {TRUST.map((t, i) => (
-            <span key={t}>
-              {i > 0 && <span aria-hidden="true">·&nbsp;&nbsp;</span>}
-              <strong>{t}</strong>
-            </span>
+          {TRUST.map((t) => (
+            <strong key={t}>{t}</strong>
           ))}
         </div>
       </div>

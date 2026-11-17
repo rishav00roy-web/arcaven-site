@@ -60,7 +60,7 @@
   --ink-line: rgba(15, 23, 42, 0.14);
   --forest-deep: #0b1222;
   --forest: #0f172a;
-  --earth: #0284c7;
+  --earth: #0369a1;
   --sage: #7dd3fc;
   --blue: #0284c7;
   --cream: #f8fafc;
@@ -683,14 +683,14 @@ body {
 
 .difference__inner {
   display: grid;
-  grid-template-columns: 1fr 1.35fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
   gap: clamp(3rem, 6vw, 7rem);
   align-items: start;
 }
 
 @media (max-width: 960px) {
   .difference__inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -752,7 +752,7 @@ body {
 
 .difference__features {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
   margin-top: 1rem;
 }
@@ -2069,4 +2069,121 @@ html {
   text-align: center;
   font-size: 0.75rem;
   color: var(--ink-soft);
+}
+
+/* ---------- Review pass fixes (Hallmark + UI UX Pro Max checks) ---------- */
+
+/* Big heads never push the page sideways on small phones */
+h1, h2, h3, .caps {
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+html, body {
+  overflow-x: clip;
+}
+
+/* Hero lockup sits clear of the header wordmark */
+.hero__words {
+  top: clamp(7.75rem, 16vh, 11rem);
+}
+@media (max-width: 640px) {
+  .hero__words {
+    top: 8.25rem;
+  }
+}
+
+/* Touch targets: 44px minimum hit area */
+.chrome__toggle {
+  width: 44px;
+  height: 44px;
+  padding: 12px 8px;
+  justify-content: center;
+  margin-left: -8px;
+}
+
+.ww-studio__dot,
+.ww-testimonials__dot {
+  position: relative;
+  transition: width 200ms var(--ease), background-color 200ms var(--ease);
+}
+.ww-studio__dot::after,
+.ww-testimonials__dot::after {
+  content: "";
+  position: absolute;
+  inset: -18px -6px;
+}
+
+.stays__browse,
+.stays__card-link,
+.ww-footer__map-link,
+.ww-footer__social-link {
+  display: inline-block;
+  padding-block: 0.8rem;
+  margin-block: -0.8rem;
+}
+
+/* Trust line wraps cleanly instead of leaving a stray dot */
+.booking-bar__footnote {
+  flex-wrap: wrap;
+  column-gap: 1.25rem;
+  row-gap: 0.4rem;
+}
+.booking-bar__footnote > span {
+  flex-basis: 100%;
+  text-align: center;
+}
+@media (min-width: 961px) {
+  .booking-bar__footnote > span {
+    flex-basis: auto;
+  }
+}
+
+/* Founder card contact links stack on phones so the email never breaks */
+@media (max-width: 640px) {
+  .ww-getting-here__map-coords {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+}
+.ww-getting-here__map-coords a {
+  padding-block: 0.6rem;
+  margin-block: -0.6rem;
+}
+
+/* Focus ring always visible on dark and light grounds */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  transition: none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .nature-marquee__track,
+  [class*="marquee"] {
+    animation: none !important;
+  }
+  .hero__photo,
+  .hero__words,
+  .hero__flank,
+  .hero__arch {
+    animation: none !important;
+  }
+}
+
+/* Marquee holds still while hovered or focused */
+.nature-marquee:hover .nature-marquee__track,
+.nature-marquee:focus-within .nature-marquee__track {
+  animation-play-state: paused;
 }
