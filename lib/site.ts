@@ -83,7 +83,19 @@ export const SERVICES: Service[] = [
   },
 ];
 
-export type IconName = "badge" | "clock" | "gift";
+export type IconName =
+  | "chat"
+  | "cart"
+  | "shield"
+  | "spark"
+  | "badge"
+  | "clock"
+  | "gift"
+  | "calendar"
+  | "inbox"
+  | "receipt"
+  | "mail"
+  | "phone";
 
 export const DIFFERENCES: { title: string; description: string; icon: IconName }[] = [
   {

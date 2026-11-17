@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowLeft, ArrowRight } from "kubai-icons-react";
 import { useState } from "react";
 import Image from "next/image";
 import { BOOK_CALL_HREF, CHANNELS } from "@/lib/site";
@@ -20,7 +21,6 @@ export default function SetsInTheCity() {
       <div className="ww-studio__inner">
         {/* Left Column: Description & Highlights */}
         <div className="ww-studio__content">
-          <span className="ww-studio__eyebrow label">TIER-1 ENTERPRISE PEDIGREE</span>
           <h2 className="ww-studio__heading caps">Fortune 500 SLA Discipline for Growing Brands</h2>
           <p className="ww-studio__description">
             Led by Alim Mavani, former Team Leader & Transition Coach at JPMorgan Chase and Billing Dispute Specialist at Citi. Arcaven Solutions brings that discipline to every channel your customers use, from the first pre-sale DM to the last chargeback.
@@ -49,7 +49,6 @@ export default function SetsInTheCity() {
               style={{ objectFit: "cover" }}
             />
             <div className="ww-studio__slide-caption">
-              <span className="ww-studio__slide-index label">{String(currentSet + 1).padStart(2, '0')} / {String(CHANNELS.length).padStart(2, '0')}</span>
               <h3 className="ww-studio__slide-name caps">{CHANNELS[currentSet].title}</h3>
             </div>
           </div>
@@ -60,7 +59,7 @@ export default function SetsInTheCity() {
               onClick={prevSet}
               aria-label="Previous channel"
             >
-              <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+              <ArrowLeft size={40} trigger="parent" />
             </button>
             <div className="ww-studio__dots">
               {CHANNELS.map((_, idx) => (
@@ -77,7 +76,7 @@ export default function SetsInTheCity() {
               onClick={nextSet}
               aria-label="Next channel"
             >
-              <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              <ArrowRight size={40} trigger="parent" />
             </button>
           </div>
         </div>

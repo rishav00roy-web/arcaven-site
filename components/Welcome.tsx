@@ -3,13 +3,12 @@ import Image from "next/image";
 /* One sentence set large and centred, with a background photograph. The
    reference's Statement component adapted for the "About / Welcome" block. */
 export default function Welcome({
-  eyebrow,
   heading,
   body,
   photo,
   cta,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   heading: string;
   body: string;
   photo: { src: string; alt: string };
@@ -29,7 +28,6 @@ export default function Welcome({
       </div>
       <div className="welcome__overlay" aria-hidden="true" />
       <div className="welcome__content">
-        <span className="welcome__eyebrow label">{eyebrow}</span>
         <h2 className="welcome__heading caps">{heading}</h2>
         <p className="welcome__body">{body}</p>
         {cta && (

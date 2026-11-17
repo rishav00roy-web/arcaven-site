@@ -12,7 +12,6 @@ export default function NatureMarquee() {
     <section className="nature-marquee" id="coverage" aria-label="US and UK coverage">
       <div className="nature-marquee__header">
         <div className="nature-marquee__text">
-          <span className="nature-marquee__eyebrow label">FULL US & UK BUSINESS-HOUR COVERAGE</span>
           <h2 className="nature-marquee__heading caps">London to New York, Covered.</h2>
           <p className="nature-marquee__desc">
             Real-time shift overlap with London (GMT/BST) and New York (EST) business hours so your customers and team get instant responses.

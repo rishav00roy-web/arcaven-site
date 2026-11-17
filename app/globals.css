@@ -480,10 +480,11 @@ body {
   color: var(--cream);
   text-decoration: none;
   font-size: 0.65rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.02em;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   transition: background-color 300ms var(--ease), color 300ms var(--ease), border-color 300ms var(--ease);
+  padding: 0.75rem;
 }
 
 .hero__cta:hover {
@@ -1885,7 +1886,7 @@ html {
 .chrome__wordsub {
   margin-top: 0.3rem;
   font-size: 0.55rem;
-  letter-spacing: 0.42em;
+  letter-spacing: 0.02em;
   opacity: 0.8;
 }
 
@@ -2332,4 +2333,145 @@ textarea:disabled {
 /* Third differentiator spans the row instead of sitting alone */
 .difference__feature:last-child:nth-child(odd) {
   grid-column: 1 / -1;
+}
+
+/* ---------- Minimal pass: Kubai icons, quieter type, flatter surfaces ---------- */
+
+/* Labels, buttons and nav: sentence-size, untracked, no forced capitals */
+.label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+.booking-bar__label {
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+.hero__cta {
+  font-size: 0.8125rem;
+}
+
+/* Surfaces: hairlines instead of soft drop shadows */
+.stays__card,
+.booking-bar__card,
+.difference__image,
+.difference__wide,
+.nature-marquee__item,
+.ww-getting-here__map-card,
+.ww-getting-here__distance-card,
+.aw-contact__card,
+.aw-contact__form {
+  box-shadow: none;
+}
+.stays__card,
+.booking-bar__card,
+.ww-getting-here__distance-card {
+  border: 1px solid var(--ink-line);
+}
+.stays__card:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--ink);
+}
+
+/* Service cards: an icon, a name, one paragraph, one link */
+.stays__card-icon {
+  color: var(--earth);
+  margin: 1.75rem 1.75rem 0;
+}
+.stays__card-body {
+  padding-top: 1.25rem;
+}
+
+/* Steps carry their icon beside the number */
+.ww-getting-here__step-icon {
+  color: var(--earth);
+  margin-bottom: 0.5rem;
+}
+
+/* Differentiators: icon in the accent */
+.difference__feature-icon {
+  color: var(--earth);
+}
+
+/* Founder card contact links with their icons */
+.ww-getting-here__map-coords a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Arrow controls hold the Kubai icon centred */
+.hero__arrow,
+.ww-studio__arrow,
+.ww-testimonials__arrow,
+.ww-video__play {
+  display: grid;
+  place-items: center;
+}
+
+/* Kubai arrows are round buttons already: drop the outer ring around them */
+.hero__arrow,
+.ww-studio__arrow,
+.ww-testimonials__arrow,
+.ww-video__play {
+  width: auto;
+  height: auto;
+  border: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  min-width: 44px;
+  min-height: 44px;
+}
+.hero__arrow:hover,
+.ww-studio__arrow:hover,
+.ww-testimonials__arrow:hover,
+.ww-video__play:hover {
+  background: transparent;
+}
+.ww-testimonials__arrow {
+  color: var(--ink);
+}
+
+/* Steps: the icon leads, the number steps back */
+.ww-getting-here__distance-card .ww-getting-here__time {
+  display: none;
+}
+.ww-getting-here__distance-card .ww-getting-here__label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+ol.ww-getting-here__distances {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Service cards: icon sits inline with the name, not stacked above it */
+.stays__card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: 0;
+}
+.stays__card-icon {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 1.75rem 0 0 1.75rem;
+}
+.stays__card-body {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  padding-top: 1.75rem;
+}
+.stays__card-name {
+  padding-left: 3.25rem;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
 }

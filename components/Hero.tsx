@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "kubai-icons-react";
 import { HERO_SLIDES } from "@/lib/site";
 
 export default function Hero({
-  eyebrow,
   lines,
   headline,
   description,
@@ -92,7 +92,6 @@ export default function Hero({
 
         {description && (
           <p className="hero__flank">
-            {eyebrow && <span className="hero__eyebrow label">{eyebrow}</span>}
             <span>{description}</span>
           </p>
         )}
@@ -110,20 +109,14 @@ export default function Hero({
             onClick={prevSlide}
             aria-label="Previous slide"
           >
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 48 51" fill="none">
-              <path d="M44 25.2343C44 13.6206 35.0457 4.20574 24 4.20574C12.9543 4.20574 4 13.6206 4 25.2343C4 36.8481 12.9543 46.2629 24 46.2629C35.0457 46.2629 44 36.8481 44 25.2343Z" stroke="white" strokeWidth="1.5" />
-              <path d="M25 18C25 18 19 23.5 19 25.2343C19 26.9686 25 32.5 25 32.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <ChevronLeft size={44} trigger="parent" />
           </button>
           <button
             className="hero__arrow hero__arrow--next"
             onClick={nextSlide}
             aria-label="Next slide"
           >
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 48 51" fill="none">
-              <path d="M44 25.2343C44 13.6206 35.0457 4.20574 24 4.20574C12.9543 4.20574 4 13.6206 4 25.2343C4 36.8481 12.9543 46.2629 24 46.2629C35.0457 46.2629 44 36.8481 44 25.2343Z" stroke="white" strokeWidth="1.5" />
-              <path d="M23 18C23 18 29 23.5 29 25.2343C29 26.9686 23 32.5 23 32.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <ChevronRight size={44} trigger="parent" />
           </button>
         </div>
 

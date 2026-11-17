@@ -31,7 +31,6 @@ export default function Contact() {
     <section className="aw-contact" id="contact" data-ground="dark" aria-labelledby="contact-title">
       <div className="aw-contact__inner">
         <div className="aw-contact__copy">
-          <span className="aw-contact__eyebrow label">GET STARTED</span>
           <h2 className="aw-contact__heading caps" id="contact-title">{CONTACT.headline}</h2>
           <p className="aw-contact__sub script">{CONTACT.sub}</p>
           <a className="aw-contact__call label" href={BOOK_CALL_HREF}>Book a 15-Min Call</a>

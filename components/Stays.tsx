@@ -1,5 +1,12 @@
-import Image from "next/image";
-import { BOOK_CALL_HREF, type Service } from "@/lib/site";
+import Icon from "@/components/Icon";
+import { BOOK_CALL_HREF, type IconName, type Service } from "@/lib/site";
+
+const SERVICE_ICONS: Record<string, IconName> = {
+  support: "chat",
+  orders: "cart",
+  disputes: "shield",
+  automation: "spark",
+};
 
 /* The accommodations grid: four cards, each with an image, name, description,
    and a "Discover More" link. Follows the reference's Feature/Houses pattern
@@ -10,7 +17,6 @@ export default function Stays({ stays }: { stays: Service[] }) {
       <div className="stays__inner">
         <div className="stays__header">
           <div className="stays__heading-group">
-            <span className="stays__eyebrow label">Core Services</span>
             <h2 className="stays__heading caps">Everything Your Store Needs to Keep Customers Happy</h2>
           </div>
           <a href="#contact" className="stays__browse label">
@@ -20,24 +26,10 @@ export default function Stays({ stays }: { stays: Service[] }) {
 
         <div className="stays__grid">
           {stays.map((stay) => (
-            <article className="stays__card" key={stay.id}>
-              <div className="stays__card-image">
-                <Image
-                  src={stay.hero.src}
-                  alt={stay.hero.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  quality={88}
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
+            <article className="stays__card" key={stay.id} data-kubai-trigger>
+              <Icon name={SERVICE_ICONS[stay.id] ?? "chat"} className="stays__card-icon" size={40} />
               <div className="stays__card-body">
                 <h3 className="stays__card-name caps">{stay.name}</h3>
-                <ul className="stays__card-specs label">
-                  {stay.specs.split(" · ").map((sp) => (
-                    <li key={sp}>{sp}</li>
-                  ))}
-                </ul>
                 <p className="stays__card-desc">{stay.description}</p>
                 <a href={BOOK_CALL_HREF} className="stays__card-link label">
                   Book a 15-Min Call

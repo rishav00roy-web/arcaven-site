@@ -40,16 +40,13 @@ export default function Difference({
         {/* Right column */}
         <div className="difference__right">
           <div className="difference__content">
-            <span className="difference__eyebrow label">
-              Why Arcaven Solutions
-            </span>
             <h2 className="difference__heading caps">
               Built for Founders Who Want Zero Micromanagement
             </h2>
 
             <div className="difference__features" role="list">
               {DIFFERENCES.map((d) => (
-                <div className="difference__feature" role="listitem" key={d.title}>
+                <div className="difference__feature" role="listitem" key={d.title} data-kubai-trigger>
                   <Icon name={d.icon} className="difference__feature-icon" />
                   <div className="difference__feature-body">
                     <h3 className="difference__feature-title">{d.title}</h3>

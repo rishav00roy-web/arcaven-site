@@ -40,7 +40,6 @@ export default function Home() {
 
       {/* 1. Hero with multi-slide background & scroll arch */}
       <Hero
-        eyebrow="DEDICATED CX & OPERATIONS FOR US & UK E-COMMERCE BRANDS"
         lines={["ARCAVEN", "SOLUTIONS"]}
         headline="Dedicated Customer Support & Operations That Scale Your Brand At a Fraction of Local Hiring Costs."
         description="Stop losing hours to repetitive order tickets, DMs, and refund disputes."
@@ -52,7 +51,6 @@ export default function Home() {
 
       {/* 3. About / positioning */}
       <Welcome
-        eyebrow="ABOUT ARCAVEN SOLUTIONS"
         heading="Your CX & Back-Office, Handled."
         body="Stop losing hours to repetitive order tickets, DMs, and refund disputes. Arcaven Solutions gives US and UK e-commerce founders reliable, business-hour customer experience and back-office support—backed by 6+ years of Tier-1 banking and telecom operations leadership."
         photo={HOME.about}

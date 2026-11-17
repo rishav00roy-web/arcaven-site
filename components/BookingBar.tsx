@@ -18,7 +18,6 @@ export default function BookingBar() {
     <section className="booking-bar" id="booking" aria-label="Book a 15-minute call">
       <div className="booking-bar__card relative">
         <div className="booking-bar__header">
-          <span className="booking-bar__eyebrow label">DIRECT LINE TO THE FOUNDER</span>
           <h2 className="booking-bar__heading caps">Book a 15-Min Call</h2>
         </div>
 
