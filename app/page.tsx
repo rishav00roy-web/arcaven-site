@@ -56,7 +56,7 @@ export default function Home() {
         heading="Your CX & Back-Office, Handled."
         body="Stop losing hours to repetitive order tickets, DMs, and refund disputes. Arcaven Solutions gives US and UK e-commerce founders reliable, business-hour customer experience and back-office support—backed by 6+ years of Tier-1 banking and telecom operations leadership."
         photo={HOME.about}
-        cta={{ href: "#services", label: "Explore Services →" }}
+        cta={{ href: "#services", label: "Explore Services" }}
       />
 
       {/* 4. Core services */}

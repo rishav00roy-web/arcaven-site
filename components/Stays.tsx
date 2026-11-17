@@ -33,7 +33,11 @@ export default function Stays({ stays }: { stays: Service[] }) {
               </div>
               <div className="stays__card-body">
                 <h3 className="stays__card-name caps">{stay.name}</h3>
-                <p className="stays__card-specs label">{stay.specs}</p>
+                <ul className="stays__card-specs label">
+                  {stay.specs.split(" · ").map((sp) => (
+                    <li key={sp}>{sp}</li>
+                  ))}
+                </ul>
                 <p className="stays__card-desc">{stay.description}</p>
                 <a href={BOOK_CALL_HREF} className="stays__card-link label">
                   Book a 15-Min Call

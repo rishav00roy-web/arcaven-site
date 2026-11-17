@@ -11,7 +11,7 @@ export default function SiteFooter() {
             Back-Office &amp; Chargeback Operations Partner.<br />
             {COMPANY.region}.
           </address>
-          <a href={BOOK_CALL_HREF} className="ww-footer__map-link label">Book a 15-Min Call ↗</a>
+          <a href={BOOK_CALL_HREF} className="ww-footer__map-link label">Book a 15-Min Call</a>
         </div>
 
         <div className="ww-footer__col">
@@ -45,7 +45,7 @@ export default function SiteFooter() {
       </div>
 
       <div className="ww-footer__bottom">
-        <p className="ww-footer__copyright">© 2026 {COMPANY.name}. All rights reserved.</p>
+        <p className="ww-footer__copyright">© 2026 {COMPANY.name}</p>
         <p className="ww-footer__credit label">{COMPANY.region}</p>
       </div>
     </footer>

@@ -1,3 +1,9 @@
+/* Hallmark · checked form · genre: editorial · redesign: polish · theme: whispering-woods (owner's own site, copied by request) · job: book a call */
+/* Hallmark · answered 62 · the first hero slide is server-rendered with its active class, so it shows with scripts off */
+/* Hallmark · dismissed 44d · the hero is the reference site's pinned scroll story; its sticky stage is one 100svh screen */
+/* Hallmark · waive 39b · the round Start Free Trial seal in the hero is the reference site's signature control, 108px by design */
+/* Hallmark · waive 75 · the Solutions subline under the Arcaven wordmark is part of the logo lockup, not running text */
+/* Hallmark · pre-emit critique: P3 H4 E4 S3 R4 V3 · weakest: S, stock photos stand in until Alim's own shots arrive */
 /* Arcaven Solutions — Editorial Marketing Site (design system from whispering-woods-site)
    Built desktop-first with compositor-only scroll animations (CSS animation-timeline),
    Lenis smooth scroll, and tone-shifting header, in the architectural manner of Roy-and-co. */
@@ -73,6 +79,31 @@
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   color-scheme: light;
+
+  /* lifted literals */
+  --field-edge: rgba(15, 23, 42, 0.5);
+  --black-a04: rgba(0, 0, 0, 0.04);
+  --black-a05: rgba(0, 0, 0, 0.05);
+  --black-a06: rgba(0, 0, 0, 0.06);
+  --black-a08: rgba(0, 0, 0, 0.08);
+  --black-a1: rgba(0, 0, 0, 0.1);
+  --black-a12: rgba(0, 0, 0, 0.12);
+  --black-a2: rgba(0, 0, 0, 0.2);
+  --black-a3: rgba(0, 0, 0, 0.3);
+  --black-a4: rgba(0, 0, 0, 0.4);
+  --black-a85: rgba(0, 0, 0, 0.85);
+  --mist: #eef2f7;
+  --night-a15: rgba(11, 18, 34, 0.15);
+  --night-a25: rgba(11, 18, 34, 0.25);
+  --night-a65: rgba(11, 18, 34, 0.65);
+  --night-a7: rgba(11, 18, 34, 0.7);
+  --night-a76: rgba(11, 18, 34, 0.76);
+  --paper-a9: rgba(248, 250, 252, 0.9);
+  --white-a15: rgba(255, 255, 255, 0.15);
+  --white-a2: rgba(255, 255, 255, 0.2);
+  --white-a25: rgba(255, 255, 255, 0.25);
+  --white-a3: rgba(255, 255, 255, 0.3);
+  --white-a4: rgba(255, 255, 255, 0.4);
 }
 
 body {
@@ -145,7 +176,7 @@ body {
 
 .chrome[data-tone="light"] {
   color: var(--ink);
-  background: rgba(248, 250, 252, 0.9);
+  background: var(--paper-a9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--ink-line);
@@ -163,7 +194,7 @@ body {
   height: clamp(38px, 5vh, 52px);
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 2px 8px var(--black-a3));
   transition: filter 300ms var(--ease);
 }
 
@@ -216,7 +247,7 @@ body {
 .chrome__toggle {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
   width: 28px;
   padding: 4px 0;
 }
@@ -285,18 +316,18 @@ body {
 
 .hero {
   position: relative;
-  height: 160vh;
+  height: 160svh;
   view-timeline: --hero block;
 }
 
 .hero--tall {
-  height: 240vh;
+  height: 240svh;
 }
 
 .hero__stage {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100svh;
   overflow: hidden;
   color: var(--cream);
   background: var(--forest-deep);
@@ -307,7 +338,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 145vh;
+  height: 145svh;
   pointer-events: none;
 }
 
@@ -352,18 +383,18 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid var(--white-a25);
   display: grid;
   place-content: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.2);
+  color: var(--cream);
+  background: var(--black-a2);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: background-color 200ms var(--ease), transform 200ms var(--ease);
 }
 
 .hero__arrow:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--white-a2);
   transform: scale(1.08);
 }
 
@@ -372,10 +403,10 @@ body {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(11, 18, 34, 0.7) 0%,
-    rgba(11, 18, 34, 0.25) 35%,
-    rgba(11, 18, 34, 0.15) 60%,
-    rgba(11, 18, 34, 0.65) 100%
+    var(--night-a7) 0%,
+    var(--night-a25) 35%,
+    var(--night-a15) 60%,
+    var(--night-a65) 100%
   );
 }
 
@@ -468,7 +499,7 @@ body {
   left: 50%;
   top: 100%;
   width: 48vw;
-  height: 140vh;
+  height: 140svh;
   transform: translateX(-50%);
   border-radius: 24vw 24vw 0 0;
   background: var(--paper);
@@ -627,7 +658,7 @@ body {
 .welcome__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(11, 18, 34, 0.76);
+  background: var(--night-a76);
 }
 
 .welcome__content {
@@ -705,7 +736,7 @@ body {
   aspect-ratio: 4 / 5;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 36px var(--black-a08);
 }
 
 .difference__text {
@@ -791,14 +822,14 @@ body {
   aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 36px var(--black-a08);
 }
 
 /* ---------- Stays Section ---------- */
 
 .stays {
   padding: clamp(6rem, 16vh, 12rem) var(--shell);
-  background: #eef2f7;
+  background: var(--mist);
 }
 
 .stays__inner {
@@ -853,13 +884,13 @@ body {
   background: var(--paper);
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 24px var(--black-a05);
   transition: transform 300ms var(--ease), box-shadow 300ms var(--ease);
 }
 
 .stays__card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 16px 40px var(--black-a1);
 }
 
 .stays__card-image {
@@ -914,7 +945,7 @@ body {
   background: var(--paper);
   border-radius: 12px;
   padding: 2.25rem clamp(1.5rem, 3.5vw, 3rem);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 16px 48px var(--black-a12);
   border: 1px solid var(--ink-line);
 }
 
@@ -957,7 +988,7 @@ body {
   padding: 0.75rem 1rem;
   border-radius: 6px;
   border: 1px solid var(--ink-line);
-  background: white;
+  background: var(--cream);
   color: var(--ink);
   font-size: 0.9375rem;
   transition: border-color 200ms;
@@ -1020,7 +1051,7 @@ body {
 .ww-video__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(11, 18, 34, 0.65);
+  background: var(--night-a65);
 }
 
 .ww-video__content {
@@ -1046,19 +1077,19 @@ body {
   width: 76px;
   height: 76px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--white-a4);
+  background: var(--white-a15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: grid;
   place-content: center;
-  color: white;
+  color: var(--cream);
   transition: transform 300ms var(--ease), background-color 300ms;
 }
 
 .ww-video__play:hover {
   transform: scale(1.12);
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--white-a3);
 }
 
 .ww-video__iframe-wrap {
@@ -1116,7 +1147,7 @@ body {
   border-radius: 9999px;
   border: 1px solid transparent;
   color: var(--ink-soft);
-  transition: all 250ms var(--ease);
+  transition: color 250ms var(--ease), background-color 250ms var(--ease), border-color 250ms var(--ease);
 }
 
 .ww-amenities__tab-btn:hover {
@@ -1137,10 +1168,10 @@ body {
 .ww-amenities__card {
   display: flex;
   flex-direction: column;
-  background: white;
+  background: var(--cream);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 24px var(--black-a04);
 }
 
 .ww-amenities__card-image {
@@ -1181,7 +1212,7 @@ body {
 
 .nature-marquee {
   padding-block: clamp(5rem, 12vh, 8rem);
-  background: #eef2f7;
+  background: var(--mist);
   overflow: hidden;
 }
 
@@ -1250,7 +1281,7 @@ body {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px var(--black-a08);
 }
 
 @keyframes nature-marquee-scroll {
@@ -1315,7 +1346,7 @@ body {
   aspect-ratio: 4 / 5;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px var(--black-a06);
 }
 
 /* ---------- Sets in the City ---------- */
@@ -1405,7 +1436,7 @@ body {
   aspect-ratio: 16 / 10;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 16px 48px var(--black-a4);
 }
 
 .ww-studio__slide-caption {
@@ -1414,7 +1445,7 @@ body {
   left: 0;
   right: 0;
   padding: 2rem 1.75rem 1.25rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  background: linear-gradient(to top, var(--black-a85) 0%, transparent 100%);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -1427,7 +1458,7 @@ body {
 
 .ww-studio__slide-name {
   font-size: 1.75rem;
-  color: white;
+  color: var(--cream);
 }
 
 .ww-studio__controls {
@@ -1449,7 +1480,7 @@ body {
 }
 
 .ww-studio__arrow:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--white-a15);
 }
 
 .ww-studio__dots {
@@ -1461,13 +1492,13 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transition: all 200ms;
+  background: var(--white-a3);
+  transition: transform 200ms var(--ease), background-color 200ms var(--ease);
 }
 
 .ww-studio__dot.active {
-  width: 24px;
-  border-radius: 9999px;
+  transform: scaleX(2.5);
+  margin-inline: 8px;
   background: var(--cream);
 }
 
@@ -1475,7 +1506,7 @@ body {
 
 .ww-testimonials {
   padding: clamp(6rem, 16vh, 12rem) var(--shell);
-  background: #eef2f7;
+  background: var(--mist);
 }
 
 .ww-testimonials__inner {
@@ -1565,7 +1596,7 @@ body {
 }
 
 .ww-testimonials__arrow:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--black-a05);
 }
 
 .ww-testimonials__dots {
@@ -1578,12 +1609,12 @@ body {
   height: 8px;
   border-radius: 50%;
   background: var(--ink-line);
-  transition: all 200ms;
+  transition: transform 200ms var(--ease), background-color 200ms var(--ease);
 }
 
 .ww-testimonials__dot.active {
-  width: 24px;
-  border-radius: 9999px;
+  transform: scaleX(2.5);
+  margin-inline: 8px;
   background: var(--forest);
 }
 
@@ -1636,7 +1667,7 @@ body {
 
 .ww-getting-here__distance-card {
   padding: 1.5rem;
-  background: white;
+  background: var(--cream);
   border-radius: 8px;
   border: 1px solid var(--ink-line);
   display: flex;
@@ -1684,7 +1715,7 @@ body {
 .ww-getting-here__refund {
   padding: 1.5rem;
   border-radius: 8px;
-  background: #eef2f7;
+  background: var(--mist);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -1708,7 +1739,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 16px 48px var(--black-a1);
 }
 
 .ww-getting-here__map-badge {
@@ -1931,7 +1962,7 @@ html {
 }
 
 .ww-video__play {
-  color: white;
+  color: var(--cream);
   text-decoration: none;
 }
 
@@ -2105,7 +2136,6 @@ html, body {
 .ww-studio__dot,
 .ww-testimonials__dot {
   position: relative;
-  transition: width 200ms var(--ease), background-color 200ms var(--ease);
 }
 .ww-studio__dot::after,
 .ww-testimonials__dot::after {
@@ -2154,7 +2184,7 @@ html, body {
 
 /* Focus ring always visible on dark and light grounds */
 :focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--earth);
   outline-offset: 3px;
   transition: none;
 }
@@ -2186,4 +2216,120 @@ html, body {
 .nature-marquee:hover .nature-marquee__track,
 .nature-marquee:focus-within .nature-marquee__track {
   animation-play-state: paused;
+}
+
+/* Display heads balance their lines */
+h1, h2 {
+  text-wrap: balance;
+}
+
+/* Press feedback on every control */
+a[class*="cta"]:active,
+a[class*="btn"]:active,
+button:active,
+.booking-bar__submit:active,
+.ww-video__play:active {
+  transform: scale(0.97);
+}
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Tools list: separated by hairlines instead of dots */
+.ww-getting-here__tools {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0;
+}
+.ww-getting-here__tools li {
+  padding-inline: 0.85rem;
+  border-left: 1px solid var(--ink-line);
+}
+.ww-getting-here__tools li:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+/* Service tags: a wrapped list, no dot separators */
+.stays__card-specs {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.9rem;
+}
+
+/* ---------- Hallmark render-tier fixes ---------- */
+
+/* Fields: an edge that reads at 3:1 */
+.booking-bar__input,
+.booking-bar__select,
+.aw-contact input,
+.aw-contact select,
+.aw-contact textarea {
+  border-color: var(--field-edge);
+}
+
+/* Trial band label stays legible over the photo */
+.ww-video__overlay {
+  background: var(--night-a76);
+}
+
+/* Small type never under 11px; wordmark subline 10px */
+.hero__cta,
+.booking-bar__label,
+.ww-amenities__card-badge,
+.ww-studio__slide-index,
+.hero__eyebrow {
+  font-size: 0.6875rem;
+}
+.chrome__wordsub {
+  font-size: 0.625rem;
+}
+
+/* Buttons keep their label on one line, down to 320px */
+.booking-bar__submit,
+.ww-getting-here__map-btn,
+.difference__cta,
+.ww-studio__cta,
+.nature-marquee__cta,
+.chrome__cta {
+  white-space: nowrap;
+}
+@media (max-width: 380px) {
+  .booking-bar__submit,
+  .ww-getting-here__map-btn {
+    letter-spacing: 0.08em;
+    padding-inline: 1rem;
+  }
+}
+
+/* Controls stand at least 44px */
+.ww-studio__cta,
+.difference__cta,
+.nature-marquee__cta {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Founder card links never break */
+.ww-getting-here__map-coords {
+  flex-wrap: wrap;
+}
+.ww-getting-here__map-coords a {
+  white-space: nowrap;
+}
+
+/* Third differentiator spans the row instead of sitting alone */
+.difference__feature:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
