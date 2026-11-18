@@ -1,5 +1,5 @@
 import Icon from "@/components/Icon";
-import { BOOK_CALL_HREF, type IconName, type Service } from "@/lib/site";
+import { type IconName, type Service } from "@/lib/site";
 
 const SERVICE_ICONS: Record<string, IconName> = {
   support: "chat",
@@ -24,20 +24,15 @@ export default function Stays({ stays }: { stays: Service[] }) {
           </a>
         </div>
 
-        <div className="stays__grid">
+        <ul className="stays__list">
           {stays.map((stay) => (
-            <article className="stays__card" key={stay.id} data-kubai-trigger>
-              <Icon name={SERVICE_ICONS[stay.id] ?? "chat"} className="stays__card-icon" size={40} />
-              <div className="stays__card-body">
-                <h3 className="stays__card-name caps">{stay.name}</h3>
-                <p className="stays__card-desc">{stay.description}</p>
-                <a href={BOOK_CALL_HREF} className="stays__card-link label">
-                  Book a 15-Min Call
-                </a>
-              </div>
-            </article>
+            <li className="stays__row" key={stay.id} data-kubai-trigger>
+              <Icon name={SERVICE_ICONS[stay.id] ?? "chat"} className="stays__row-icon" size={36} />
+              <h3 className="stays__row-name caps">{stay.name}</h3>
+              <p className="stays__row-desc">{stay.description}</p>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Cormorant_Garamond, Inter } from "next/font/google";
+import { Playfair_Display, Cormorant_Garamond, Archivo } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -27,9 +27,8 @@ const script = Cormorant_Garamond({
   display: "swap",
 });
 
-/* Inter for UI and body text — clean, highly legible, variable width,
-   replacing the reference's Archivo. */
-const ui = Inter({
+/* Archivo for UI and body text, the same face as the reference site. */
+const ui = Archivo({
   subsets: ["latin"],
   variable: "--font-ui",
   display: "swap",

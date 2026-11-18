@@ -28,7 +28,7 @@ export default function GettingHere() {
           </ol>
 
           <div className="ww-getting-here__address-box">
-            <h4 className="ww-getting-here__subheading label">Tools We Plug Into</h4>
+            <h3 className="ww-getting-here__subheading label">Tools We Plug Into</h3>
             <ul className="ww-getting-here__address ww-getting-here__tools">
               {["Gorgias", "Zendesk", "Freshdesk", "Gmail", "Shopify"].map((t) => (
                 <li key={t}>{t}</li>
