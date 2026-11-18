@@ -36,8 +36,10 @@ export default function SiteHeader() {
       <header className="chrome" data-tone={dark ? "dark" : "light"}>
         {/* Logo / Home link */}
         <a className="chrome__logo" href="#top" aria-label={`${COMPANY.name}, back to top`}>
-          <span className="chrome__wordmark caps">Arcaven</span>
-          <span className="chrome__wordsub label">Solutions</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="chrome__brand chrome__brand--on-dark" src="/brand/arcaven-logo-white.png" width={1060} height={295} alt="" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="chrome__brand chrome__brand--on-light" src="/brand/arcaven-logo.png" width={1060} height={295} alt="" />
         </a>
 
         {/* Desktop nav — left links */}

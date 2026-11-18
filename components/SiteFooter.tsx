@@ -5,7 +5,8 @@ export default function SiteFooter() {
     <footer className="ww-footer" id="ww-footer" role="contentinfo" data-ground="dark">
       <div className="ww-footer__top">
         <div className="ww-footer__col">
-          <span className="ww-footer__col-label label">Arcaven Solutions</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="ww-footer__brand" src="/brand/arcaven-logo-white.png" width={1060} height={295} alt="Arcaven Solutions" />
           <address className="ww-footer__address">
             US &amp; UK E-Commerce Customer Experience,<br />
             Back-Office &amp; Chargeback Operations Partner.<br />
