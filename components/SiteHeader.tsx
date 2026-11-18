@@ -12,6 +12,14 @@ import { COMPANY, NAV_LEFT, NAV_RIGHT, BOOK_CALL_HREF } from "@/lib/site";
 export default function SiteHeader() {
   const [dark, setDark] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const sections = document.querySelectorAll("[data-ground='dark']");
@@ -33,7 +41,7 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="chrome" data-tone={dark ? "dark" : "light"}>
+      <header className="chrome" data-tone={dark ? "dark" : "light"} data-scrolled={scrolled}>
         {/* Logo / Home link */}
         <a className="chrome__logo" href="#top" aria-label={`${COMPANY.name}, back to top`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
