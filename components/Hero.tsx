@@ -2,20 +2,23 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "kubai-icons-react";
 import { HERO_SLIDES } from "@/lib/site";
 
+type Cta = { href: string; label: string };
+
+/* Pinned hero: one specific headline, one supporting line, and a clear
+   primary action with a quieter secondary beside it. The photos crossfade
+   on their own behind a dark shade; there are no arrows or decorative seal. */
 export default function Hero({
-  lines,
   headline,
   description,
-  cta,
+  primary,
+  secondary,
 }: {
-  eyebrow?: string;
-  lines: string[];
   headline: string;
   description?: string;
-  cta?: { href: string; label: string };
+  primary: Cta;
+  secondary?: Cta;
 }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -31,19 +34,11 @@ export default function Hero({
     return () => clearInterval(interval);
   }, [paused]);
 
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-  };
-
-  const prevSlide = () => {
-    setActiveSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-  };
-
   return (
     <section
       className="hero hero--tall"
       id="top"
-      aria-label="Hero Slider"
+      aria-labelledby="hero-title"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -53,20 +48,15 @@ export default function Hero({
       <div className="hero__tone" data-ground="dark" aria-hidden="true" />
 
       <div className="hero__stage">
-        {/* Multi-slide Background Carousel */}
-        <div className="hero__photo">
+        <div className="hero__photo" aria-hidden="true">
           {HERO_SLIDES.map((slide, idx) => (
-            <div
-              key={slide.src}
-              className={`hero__slide-wrap ${idx === activeSlide ? "active" : ""}`}
-              aria-hidden={idx !== activeSlide}
-            >
+            <div key={slide.src} className={`hero__slide-wrap ${idx === activeSlide ? "active" : ""}`}>
               <Image
                 src={slide.src}
-                alt={slide.alt}
+                alt=""
                 fill
                 sizes="100vw"
-                quality={90}
+                quality={85}
                 priority={idx === 0}
                 style={{ objectPosition: "50% 50%" }}
               />
@@ -76,51 +66,22 @@ export default function Hero({
 
         <div className="hero__shade" aria-hidden="true" />
 
-        {/* Wordmark and Tagline */}
         <div className="hero__words">
-          <div className="hero__lockup">
-            <p className="hero__mark caps" aria-hidden="true">
-              {lines.map((line) => (
-                <span className="hero__line" key={line}>
-                  <span>{line}</span>
-                </span>
-              ))}
-            </p>
-            <h1 className="hero__script script">{headline}</h1>
+          <h1 className="hero__title" id="hero-title">{headline}</h1>
+          {description && <p className="hero__sub">{description}</p>}
+          <div className="hero__actions">
+            <a className="btn btn--primary btn--lg" href={primary.href}>
+              {primary.label}
+            </a>
+            {secondary && (
+              <a className="btn btn--ghost-dark btn--lg" href={secondary.href}>
+                {secondary.label}
+              </a>
+            )}
           </div>
         </div>
 
-        {description && (
-          <p className="hero__flank">
-            <span>{description}</span>
-          </p>
-        )}
-
-        {cta && (
-          <a className="hero__cta label" href={cta.href}>
-            <span>{cta.label}</span>
-          </a>
-        )}
-
-        {/* Slider Controls (Original Prev / Next Arrows) */}
-        <div className="hero__arrows" aria-label="Slider controls">
-          <button
-            className="hero__arrow hero__arrow--prev"
-            onClick={prevSlide}
-            aria-label="Previous slide"
-          >
-            <ChevronLeft size={44} trigger="parent" />
-          </button>
-          <button
-            className="hero__arrow hero__arrow--next"
-            onClick={nextSlide}
-            aria-label="Next slide"
-          >
-            <ChevronRight size={44} trigger="parent" />
-          </button>
-        </div>
-
-        {/* The architectural cream arch that rises at the end of the hero into the next section */}
+        {/* The arch that rises out of the hero into the next section */}
         <div className="hero__arch" aria-hidden="true" />
       </div>
     </section>

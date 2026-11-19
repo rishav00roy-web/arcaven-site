@@ -1,13 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { CircleCheck } from "kubai-icons-react";
+import CopyEmail from "@/components/CopyEmail";
 import { BOOK_CALL_HREF, COMPANY, CONTACT } from "@/lib/site";
 
 /* Lead form in the booking-bar language: paper card, label-caps fields,
    forest (navy) submit. No backend: it opens the visitor's email app with
    the details filled into a message to Alim. */
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  /* idle → opening (spinner while the mail app launches) → sent */
+  const [state, setState] = useState<"idle" | "opening" | "sent">("idle");
+
+  useEffect(() => {
+    if (state !== "opening") return;
+    const t = setTimeout(() => setState("sent"), 1200);
+    return () => clearTimeout(t);
+  }, [state]);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -24,7 +33,7 @@ export default function Contact() {
       get("message"),
     ].join("\n");
     window.location.href = `mailto:${COMPANY.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setState("opening");
   }
 
   return (
@@ -32,28 +41,28 @@ export default function Contact() {
       <div className="aw-contact__inner">
         <div className="aw-contact__copy">
           <h2 className="aw-contact__heading caps" id="contact-title">{CONTACT.headline}</h2>
-          <p className="aw-contact__sub script">{CONTACT.sub}</p>
-          <a className="aw-contact__call label" href={BOOK_CALL_HREF}>Book a 15-Min Call</a>
+          <p className="aw-contact__sub">{CONTACT.sub}</p>
+          <a className="btn btn--ghost-dark" href={BOOK_CALL_HREF}>Book a 15-min call instead</a>
         </div>
 
         <form className="booking-bar__card aw-contact__form" onSubmit={onSubmit}>
           <div className="aw-contact__row">
             <div className="booking-bar__field">
-              <label className="booking-bar__label label" htmlFor="c-name">Full Name</label>
+              <label className="booking-bar__label label" htmlFor="c-name">Full name</label>
               <input id="c-name" name="name" className="booking-bar__input" autoComplete="name" required />
             </div>
             <div className="booking-bar__field">
-              <label className="booking-bar__label label" htmlFor="c-email">Work Email</label>
+              <label className="booking-bar__label label" htmlFor="c-email">Work email</label>
               <input id="c-email" name="email" type="email" className="booking-bar__input" autoComplete="email" required />
             </div>
           </div>
           <div className="aw-contact__row">
             <div className="booking-bar__field">
-              <label className="booking-bar__label label" htmlFor="c-brand">Brand / Website URL</label>
+              <label className="booking-bar__label label" htmlFor="c-brand">Store URL</label>
               <input id="c-brand" name="brand" className="booking-bar__input" autoComplete="url" required />
             </div>
             <div className="booking-bar__field">
-              <label className="booking-bar__label label" htmlFor="c-volume">Monthly Order Volume</label>
+              <label className="booking-bar__label label" htmlFor="c-volume">Monthly orders</label>
               <select id="c-volume" name="volume" className="booking-bar__select" required defaultValue="">
                 <option value="" disabled>Select volume</option>
                 {CONTACT.volumes.map((v) => (
@@ -63,15 +72,37 @@ export default function Contact() {
             </div>
           </div>
           <div className="booking-bar__field">
-            <label className="booking-bar__label label" htmlFor="c-message">Message / Biggest Pain Point</label>
+            <label className="booking-bar__label label" htmlFor="c-message">Biggest support headache <span className="booking-bar__optional">(optional)</span></label>
             <textarea id="c-message" name="message" rows={4} className="booking-bar__input aw-contact__textarea" />
           </div>
-          <button className="booking-bar__submit label" type="submit">{CONTACT.submit}</button>
-          <p className="aw-contact__note" role="status">
-            {sent
-              ? "Your email app should now be open with your details filled in. Just press send."
-              : "Submitting opens your email app with these details ready to send."}
-          </p>
+          <button
+            className="btn btn--primary btn--block btn--lg"
+            type="submit"
+            disabled={state === "opening"}
+            aria-busy={state === "opening"}
+          >
+            {state === "opening" ? (
+              <>
+                <span className="spinner" aria-hidden="true" />
+                Opening your email app…
+              </>
+            ) : (
+              CONTACT.submit
+            )}
+          </button>
+          <div className="aw-contact__note" role="status">
+            {state === "sent" ? (
+              <p className="aw-contact__sent feedback-in">
+                <CircleCheck size={18} trigger="parent" />
+                <span>
+                  Your email is ready with your details filled in. Press send and Alim replies within 2
+                  business hours. Nothing opened? Write to <CopyEmail />.
+                </span>
+              </p>
+            ) : (
+              <p>Submitting opens your email app with these details ready to send.</p>
+            )}
+          </div>
         </form>
       </div>
     </section>

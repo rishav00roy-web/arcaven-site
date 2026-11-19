@@ -1,3 +1,4 @@
+import CopyEmail from "@/components/CopyEmail";
 import Icon from "@/components/Icon";
 import { BOOK_CALL_HREF, COMPANY, STEPS, type IconName } from "@/lib/site";
 
@@ -10,7 +11,7 @@ export default function GettingHere() {
     <section className="ww-getting-here" id="how" aria-label="How it works">
       <div className="ww-getting-here__inner">
         <div className="ww-getting-here__content">
-          <h2 className="ww-getting-here__heading caps">Simple 3-Step Onboarding Process</h2>
+          <h2 className="ww-getting-here__heading caps">From first call to a cleared inbox in three steps</h2>
           <p className="ww-getting-here__description">
             Book a quick 15-minute intro call or request your free 3-day trial. We reply within 2
             business hours.
@@ -19,7 +20,7 @@ export default function GettingHere() {
           <ol className="ww-getting-here__distances ww-getting-here__distances--steps">
             {STEPS.map((s, i) => (
               <li className="ww-getting-here__distance-card" key={s.step} data-kubai-trigger>
-                <Icon name={STEP_ICONS[i]} className="ww-getting-here__step-icon" size={28} />
+                <Icon name={STEP_ICONS[i]} className="ww-getting-here__step-icon" size={32} />
                 <span className="ww-getting-here__time caps">{s.step}</span>
                 <span className="ww-getting-here__label label">{s.title}</span>
                 <span className="ww-getting-here__note">{s.body}</span>
@@ -28,7 +29,7 @@ export default function GettingHere() {
           </ol>
 
           <div className="ww-getting-here__address-box">
-            <h3 className="ww-getting-here__subheading label">Tools We Plug Into</h3>
+            <h3 className="ww-getting-here__subheading label">Works inside</h3>
             <ul className="ww-getting-here__address ww-getting-here__tools">
               {["Gorgias", "Zendesk", "Freshdesk", "Gmail", "Shopify"].map((t) => (
                 <li key={t}>{t}</li>
@@ -46,17 +47,17 @@ export default function GettingHere() {
               Specialist at Citi.
             </p>
             <div className="ww-getting-here__map-coords">
-              <a href={`mailto:${COMPANY.email}`} data-kubai-trigger>
+              <span className="ww-getting-here__coord" data-kubai-trigger>
                 <Icon name="mail" size={18} />
-                {COMPANY.email}
-              </a>
+                <CopyEmail tone="dark" />
+              </span>
               <a href={`https://wa.me/${COMPANY.whatsapp}`} target="_blank" rel="noopener noreferrer" data-kubai-trigger>
                 <Icon name="phone" size={18} />
-                WhatsApp {COMPANY.phone}
+                <span className="tabular">WhatsApp {COMPANY.phone}</span>
               </a>
             </div>
-            <a href={BOOK_CALL_HREF} className="ww-getting-here__map-btn label">
-              Book a 15-Min Call
+            <a href={BOOK_CALL_HREF} className="btn btn--primary btn--block">
+              Book a 15-min call with Alim
             </a>
           </div>
         </div>

@@ -9,7 +9,7 @@ import SetsInTheCity from "@/components/SetsInTheCity";
 import Testimonials from "@/components/Testimonials";
 import GettingHere from "@/components/GettingHere";
 import Contact from "@/components/Contact";
-import { COMPANY, FAQ, HOME, SEO, SERVICES } from "@/lib/site";
+import { BOOK_CALL_HREF, COMPANY, FAQ, HOME, SEO, SERVICES } from "@/lib/site";
 
 const schema = [
   {
@@ -38,30 +38,25 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      {/* 1. Hero with multi-slide background & scroll arch */}
+      {/* 1. Hero */}
       <Hero
-        lines={["ARCAVEN", "SOLUTIONS"]}
-        headline="Dedicated Customer Support & Operations That Scale Your Brand At a Fraction of Local Hiring Costs."
-        description="Stop losing hours to repetitive order tickets, DMs, and refund disputes."
-        cta={{ href: "#contact", label: "Start Free Trial" }}
+        headline="Your Shopify support inbox, answered in US and UK business hours."
+        description="Dedicated customer support and back-office operations for e-commerce brands, at a fraction of local hiring costs."
+        primary={{ href: "#contact", label: "Start your free 3-day trial" }}
+        secondary={{ href: BOOK_CALL_HREF, label: "Book a 15-min call" }}
       />
 
       {/* 2. Book-a-call bar + trust line */}
       <BookingBar />
 
-      {/* 3. About / positioning */}
-      <Welcome
-        heading="Your CX & Back-Office, Handled."
-        body="Stop losing hours to repetitive order tickets, DMs, and refund disputes. Arcaven Solutions gives US and UK e-commerce founders reliable, business-hour customer experience and back-office support—backed by 6+ years of Tier-1 banking and telecom operations leadership."
-        photo={HOME.about}
-        cta={{ href: "#services", label: "Explore Services" }}
-      />
+      {/* 3. What the work looks like: an example ticket */}
+      <Welcome />
 
       {/* 4. Core services */}
       <Stays stays={SERVICES} />
 
       {/* 5. Why Arcaven */}
-      <Difference photo={HOME.difference} widePhoto={HOME.wideShot} />
+      <Difference photo={HOME.difference} />
 
       {/* 6. Free trial band */}
       <VideoSection />

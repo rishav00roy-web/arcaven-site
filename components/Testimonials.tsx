@@ -19,8 +19,8 @@ export default function Testimonials() {
     <section className="ww-testimonials" id="faq" aria-label="Frequently asked questions">
       <div className="ww-testimonials__inner">
         <div className="ww-testimonials__header">
-          <h2 className="ww-testimonials__heading caps">Questions Founders Ask</h2>
-          <p className="ww-testimonials__subheading script">
+          <h2 className="ww-testimonials__heading caps">Questions founders ask</h2>
+          <p className="ww-testimonials__subheading">
             Straight answers before your 15-minute call.
           </p>
         </div>
@@ -30,7 +30,7 @@ export default function Testimonials() {
             <footer className="ww-testimonials__footer ww-testimonials__footer--q">
               <h3 className="ww-testimonials__author caps">{FAQ[active].q}</h3>
             </footer>
-            <p className="ww-testimonials__text" aria-live="polite">{FAQ[active].a}</p>
+            <p className="ww-testimonials__text feedback-in" key={active} aria-live="polite">{FAQ[active].a}</p>
           </blockquote>
 
           <div className="ww-testimonials__controls">
@@ -47,7 +47,8 @@ export default function Testimonials() {
                   key={idx}
                   className={`ww-testimonials__dot ${idx === active ? "active" : ""}`}
                   onClick={() => setActive(idx)}
-                  aria-label={`Question ${idx + 1}`}
+                  aria-label={`Question ${idx + 1} of ${FAQ.length}`}
+                  aria-current={idx === active ? "true" : undefined}
                 />
               ))}
             </div>

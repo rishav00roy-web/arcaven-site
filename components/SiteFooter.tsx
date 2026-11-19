@@ -4,37 +4,33 @@ export default function SiteFooter() {
   return (
     <footer className="ww-footer" id="ww-footer" role="contentinfo" data-ground="dark">
       <div className="ww-footer__top">
-        <div className="ww-footer__col">
+        <div className="ww-footer__col ww-footer__col--brand">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="ww-footer__brand" src="/brand/arcaven-logo-white.png" width={1060} height={295} alt="Arcaven Solutions" />
-          <address className="ww-footer__address">
-            US &amp; UK E-Commerce Customer Experience,<br />
-            Back-Office &amp; Chargeback Operations Partner.<br />
-            {COMPANY.region}.
-          </address>
-          <a href={BOOK_CALL_HREF} className="ww-footer__map-link label">Book a 15-Min Call</a>
+          <p className="ww-footer__address">
+            Customer experience, back-office and chargeback operations for US and UK e-commerce brands.
+          </p>
         </div>
 
         <div className="ww-footer__col">
-          <span className="ww-footer__col-label label">Phone / WhatsApp</span>
-          <ul className="ww-footer__contact-list">
-            <li>
-              <a href={`https://wa.me/${COMPANY.whatsapp}`} target="_blank" rel="noopener noreferrer">{COMPANY.phone}</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="ww-footer__col">
-          <span className="ww-footer__col-label label">Email</span>
+          <span className="ww-footer__col-label label">Contact</span>
           <ul className="ww-footer__contact-list">
             <li>
               <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
             </li>
+            <li>
+              <a className="tabular" href={`https://wa.me/${COMPANY.whatsapp}`} target="_blank" rel="noopener noreferrer">
+                WhatsApp {COMPANY.phone}
+              </a>
+            </li>
+            <li>
+              <a href={BOOK_CALL_HREF} className="text-link text-link--dark">Book a 15-min call</a>
+            </li>
           </ul>
         </div>
 
         <div className="ww-footer__col">
-          <span className="ww-footer__col-label label">Explore</span>
+          <span className="ww-footer__col-label label">On this page</span>
           <ul className="ww-footer__social-list">
             {[...NAV_LEFT, ...NAV_RIGHT].map((n) => (
               <li key={n.href}>
@@ -46,8 +42,7 @@ export default function SiteFooter() {
       </div>
 
       <div className="ww-footer__bottom">
-        <p className="ww-footer__copyright">© 2026 {COMPANY.name}</p>
-        <p className="ww-footer__credit label">{COMPANY.region}</p>
+        <p className="ww-footer__copyright tabular">© 2026 {COMPANY.name}</p>
       </div>
     </footer>
   );

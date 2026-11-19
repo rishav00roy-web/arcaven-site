@@ -51,7 +51,7 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     id: "support",
-    name: "Omnichannel Customer Support",
+    name: "Omnichannel customer support",
     specs: "Email · Live Chat · Instagram · Facebook",
     description:
       "Fast, friendly, on-brand responses across Email, Live Chat, Instagram DMs, and Facebook Messages. We handle sizing questions, product inquiries, and pre-sale conversions.",
@@ -59,7 +59,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "orders",
-    name: "Shopify Order & Back-Office Admin",
+    name: "Shopify orders and back-office admin",
     specs: "Tracking · Edits · Returns · Inventory",
     description:
       "Seamless management of order tracking (“Where is my order?”), address edits, cancellations, exchanges, return portals, and inventory updates directly inside your Shopify dashboard.",
@@ -67,7 +67,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "disputes",
-    name: "Chargeback & Billing Dispute Protection",
+    name: "Chargeback and billing dispute protection",
     specs: "Audits · Prevention · Refund Workflows",
     description:
       "Protect your revenue with enterprise-grade dispute resolution. Drawing on direct US banking and credit card dispute experience, we audit irregular transactions, prevent chargebacks, and manage refund workflows.",
@@ -75,7 +75,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "automation",
-    name: "AI-Assisted Workflow & FAQ Setup",
+    name: "Helpdesk macros, FAQs and SOPs",
     specs: "Templates · Macros · SOP Documentation",
     description:
       "Smart helpdesk templates, automated macro responses, and clean SOP documentation so your support inbox stays at zero—even during Black Friday and peak holiday drops.",
@@ -99,19 +99,19 @@ export type IconName =
 
 export const DIFFERENCES: { title: string; description: string; icon: IconName }[] = [
   {
-    title: "Tier-1 Enterprise Pedigree",
+    title: "Run by an ex-JPMorgan and Citi team lead",
     description:
       "Led by Alim Mavani, former Team Leader & Transition Coach at JPMorgan Chase and Billing Dispute Specialist at Citi—bringing Fortune 500 SLA discipline to growing e-commerce brands.",
     icon: "badge",
   },
   {
-    title: "Full US & UK Business-Hour Coverage",
+    title: "Online in London and New York hours",
     description:
       "Real-time shift overlap with London (GMT/BST) and New York (EST) business hours so your customers and team get instant responses.",
     icon: "clock",
   },
   {
-    title: "Zero-Risk 3-Day Free Trial",
+    title: "Three days free on your live inbox",
     description:
       "Test our speed, tone, and accuracy on your live inbox for 3 days completely free before committing to a simple, flat monthly retainer.",
     icon: "gift",
@@ -121,28 +121,28 @@ export const DIFFERENCES: { title: string; description: string; icon: IconName }
 export const STEPS = [
   {
     step: "01",
-    title: "15-Minute Discovery Call",
+    title: "15-minute discovery call",
     body: "Tell us your daily ticket volume, helpdesk tools (Gorgias, Zendesk, Freshdesk, Gmail, or Shopify), and biggest operational bottlenecks.",
   },
   {
     step: "02",
-    title: "3-Day Free Inbox Trial",
+    title: "3-day free inbox trial",
     body: "We learn your brand voice, plug into your existing tools, and clear your support backlog at zero cost.",
   },
   {
     step: "03",
-    title: "Flat Monthly Retainer",
+    title: "Flat monthly retainer",
     body: "Scale smoothly with dedicated part-time or full-time coverage starting at a fraction of a local US/UK hire—no long-term lock-in contracts.",
   },
 ];
 
 /* Channels slider in the Sets-in-the-City layout. */
 export const CHANNELS = [
-  { title: "Email & Live Chat", img: u("photo-1551434678-e076c223a692", 1600) },
-  { title: "Instagram & Facebook DMs", img: u("photo-1556761175-b413da4baf72", 1600) },
-  { title: "Shopify Back-Office", img: u("photo-1600880292203-757bb62b4baf", 1600) },
-  { title: "Chargebacks & Disputes", img: u("photo-1542744173-8e7e53415bb0", 1600) },
-  { title: "Helpdesk Macros & SOPs", img: u("photo-1557804506-669a67965ba0", 1600) },
+  { title: "Email and live chat", img: u("photo-1551434678-e076c223a692", 1600) },
+  { title: "Instagram and Facebook DMs", img: u("photo-1556761175-b413da4baf72", 1600) },
+  { title: "Shopify back-office", img: u("photo-1600880292203-757bb62b4baf", 1600) },
+  { title: "Chargebacks and disputes", img: u("photo-1542744173-8e7e53415bb0", 1600) },
+  { title: "Helpdesk macros and SOPs", img: u("photo-1557804506-669a67965ba0", 1600) },
 ];
 
 export const CITY_GALLERY = [
@@ -178,16 +178,14 @@ export const FAQ = [
 export const TRUST = ["JPMorgan Chase", "Citi", "Three UK", "Shopify Ecosystems"];
 
 export const HOME = {
-  about: { src: u("photo-1497366811353-6870744d04b2"), alt: "Calm, modern operations floor" },
   difference: { src: u("photo-1522071820081-009f0129c71c", 1200), alt: "Operations team reviewing work together" },
-  wideShot: { src: u("photo-1521737604893-d14cc237f11d", 1600), alt: "Team hands together over a table of laptops" },
   trial: { src: u("photo-1519389950473-47ba0277781c"), alt: "Team working across laptops" },
 };
 
 export const NAV_LEFT = [
   { label: "Services", href: "#services" },
   { label: "Why Arcaven", href: "#why" },
-  { label: "How It Works", href: "#how" },
+  { label: "How it works", href: "#how" },
 ];
 
 export const NAV_RIGHT = [
@@ -196,8 +194,8 @@ export const NAV_RIGHT = [
 ];
 
 export const CONTACT = {
-  headline: "Ready to Clear Your Inbox and Reclaim Your Time?",
+  headline: "Hand us your inbox for three days, free.",
   sub: "Book a quick 15-minute intro call or request your free 3-day trial below. We reply within 2 business hours.",
   volumes: ["Under 500", "500–2,000", "2,000+"],
-  submit: "Claim My Free 3-Day Trial",
+  submit: "Claim my free 3-day trial",
 };

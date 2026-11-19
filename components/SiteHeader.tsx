@@ -66,8 +66,8 @@ export default function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <a className="chrome__cta label" href={BOOK_CALL_HREF}>
-            Book a Call
+          <a className="btn btn--primary btn--sm" href={BOOK_CALL_HREF}>
+            Book a call
           </a>
         </nav>
 
@@ -97,11 +97,11 @@ export default function SiteHeader() {
               </Link>
             ))}
             <a
-              className="mobile-menu__book label"
+              className="btn btn--primary btn--lg mobile-menu__cta"
               href={BOOK_CALL_HREF}
               onClick={() => setMenuOpen(false)}
             >
-              Book a 15-Min Call
+              Book a 15-min call
             </a>
           </div>
         </div>

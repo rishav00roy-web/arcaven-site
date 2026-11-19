@@ -3,7 +3,7 @@
 import { ArrowLeft, ArrowRight } from "kubai-icons-react";
 import { useState } from "react";
 import Image from "next/image";
-import { BOOK_CALL_HREF, CHANNELS } from "@/lib/site";
+import { CHANNELS } from "@/lib/site";
 
 export default function SetsInTheCity() {
   const [currentSet, setCurrentSet] = useState(0);
@@ -21,18 +21,13 @@ export default function SetsInTheCity() {
       <div className="ww-studio__inner">
         {/* Left Column: Description & Highlights */}
         <div className="ww-studio__content">
-          <h2 className="ww-studio__heading caps">Fortune 500 SLA Discipline for Growing Brands</h2>
+          <h2 className="ww-studio__heading caps">Fortune 500 SLA discipline for growing brands</h2>
           <p className="ww-studio__description">
             Led by Alim Mavani, former Team Leader & Transition Coach at JPMorgan Chase and Billing Dispute Specialist at Citi. Arcaven Solutions brings that discipline to every channel your customers use, from the first pre-sale DM to the last chargeback.
           </p>
           <div className="ww-studio__highlight">
-            <span className="ww-studio__count caps">6+ Years</span>
+            <span className="ww-studio__count caps tabular">6+ years</span>
             <p className="ww-studio__count-label">Of Tier-1 banking and telecom operations leadership across JPMorgan Chase, Citi, and Three UK.</p>
-          </div>
-          <div className="ww-studio__actions">
-            <a href={BOOK_CALL_HREF} className="ww-studio__cta label">
-              Book a 15-Min Call
-            </a>
           </div>
         </div>
 
@@ -67,7 +62,8 @@ export default function SetsInTheCity() {
                   key={idx}
                   className={`ww-studio__dot ${idx === currentSet ? "active" : ""}`}
                   onClick={() => setCurrentSet(idx)}
-                  aria-label={`Go to slide ${idx + 1}`}
+                  aria-label={`Show ${CHANNELS[idx].title}`}
+                  aria-current={idx === currentSet ? "true" : undefined}
                 />
               ))}
             </div>

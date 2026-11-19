@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Cormorant_Garamond, Archivo } from "next/font/google";
+import { Playfair_Display, Archivo } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -13,17 +13,6 @@ import "./globals.css";
 const display = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-display",
-  display: "swap",
-});
-
-/* Cormorant Garamond for the script/accent text — refined and light,
-   replacing the reference's Pinyon Script with something that reads
-   "luxury retreat" rather than "wedding calligraphy". */
-const script = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-script",
   display: "swap",
 });
 
@@ -50,7 +39,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${script.variable} ${ui.variable}`}>
+    <html lang="en" className={`${display.variable} ${ui.variable}`}>
       <body>
         <SmoothScroll />
         <SiteHeader />
